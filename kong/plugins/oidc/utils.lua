@@ -43,6 +43,7 @@ function M.get_options(config, ngx)
     client_secret = config.client_secret,
     discovery = config.discovery,
     introspection_endpoint = config.introspection_endpoint,
+    introspection_filtered_fields = config.introspection_filtered_fields,
     bearer_only = config.bearer_only,
     realm = config.realm,
     redirect_uri_path = config.redirect_uri_path or M.get_redirect_uri_path(ngx),

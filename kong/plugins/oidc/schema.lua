@@ -5,6 +5,7 @@ return {
     client_secret = { type = "string", required = true },
     discovery = { type = "string", required = true, default = "https://.well-known/openid-configuration" },
     introspection_endpoint = { type = "string", required = false },
+    introspection_filtered_fields = { type = "array", required = false },
     bearer_only = { type = "string", required = true, default = "no" },
     realm = { type = "string", required = true, default = "kong" },
     redirect_uri_path = { type = "string" },

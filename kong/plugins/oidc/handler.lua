@@ -33,6 +33,16 @@ function handle(oidcConfig)
     response = introspect(oidcConfig)
     if response then
       utils.injectUser(response)
+      if (oidcConfig.introspection_filtered_fields) then
+        local user = {}
+        for i, field in ipairs(oidcConfig.introspection_filtered_fields) do
+          if (response[field]) then
+            user[field] = response[field]
+          end
+        end
+        local userinfo = cjson.encode(user)
+        ngx.req.set_header("X-Userinfo", ngx.encode_base64(userinfo))
+      end
     end
   end
 
